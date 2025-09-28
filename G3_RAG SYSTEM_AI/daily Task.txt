@@ -1,0 +1,341 @@
+Group no. 3
+Domain: Al
+Name:
+1. Krushna Kapkar
+   2. Mukul Bhagat
+   3. Rutik Kadam
+   4. Atharva Waghmare 
+   5. Vipin Chaudhary
+
+TASK ALL>>>>>>>>>>>>>>>>>
+
+Date=06/01/2025
+1. ATM Machine program
+
+print("WELCOME TO StarBank")  
+user_id = 5678 
+security_pin = 4321 
+account_balance = 1000000 
+
+entered_id = int(input("Enter your Login ID: ")) 
+
+if entered_id == user_id: 
+    print("LOGIN SUCCESSFUL") 
+    print("Welcome, MR. ANDERSON") 
+    print("Your current balance is:", account_balance) 
+    
+    
+    withdrawal_amount = int(input("Enter the amount you want to withdraw: ")) 
+    
+    if withdrawal_amount <= account_balance: 
+        entered_tpin = int(input("To proceed with your withdrawal, enter the transaction PIN: ")) 
+        
+        if entered_tpin == security_pin: 
+            account_balance -= withdrawal_amount  # Deduct the amount from the account balance
+            print("Transaction Successful!") 
+            print("Your remaining balance is:", account_balance) 
+        else:  
+            print("INVALID TRANSACTION PIN") 
+    else: 
+        print("INSUFFICIENT BALANCE") 
+else: 
+    print("INVALID LOGIN ID")
+
+
+
+2.Electronics items program     
+
+items = {
+    "Laptop": 45000,
+    "Headphones": 2000,
+    "Smartphone": 15000,
+    "Charger": 500,
+    "Tablet": 25000
+}
+
+print("WELCOME TO STUDENT ELECTRONICS ")
+print("\nAvailable Items:")
+print("\n Laptop - Rs. 45000 \n Headphones - Rs. 2000 \n Smartphone - Rs. 15000 \n Charger - Rs. 500 \n Tablet - Rs. 25000")
+
+
+item_name = input("\nWhat do you want to buy? ") 
+
+
+if item_name in items: 
+    quantity = int(input("How many units do you want to buy? ")) 
+    print(f"Total cost for {quantity} {item_name}(s) is Rs. {quantity * items[item_name]}.")
+else: 
+    print("Sorry, we don't have that item in stock.")
+
+
+Date=07/01/2025
+
+items = {
+    "AndroidTV": 55000,
+    "Washing Machine": 45000,
+    "AC": 57000,
+    "Smartphone": 25000,
+    "Oven": 12000,
+    "Fridge": 42000
+}
+
+print("WELCOME TO STUDENT ELECTRONICS")
+
+
+purchased_items = []
+
+while True:
+    
+    print("\nAvailable Products:")
+    for item, price in items.items():
+        print(f" {item} : Rs {price}")
+
+    item_name = input("\nWhat would you like to buy?: ").strip()
+
+    if item_name in items:
+        try:
+            
+            quantity = int(input("How many quantity you want to purchase?: "))
+            if quantity <= 0:
+                print("Quantity must be a positive number.")
+                continue
+
+            
+            total_cost = quantity * items[item_name]
+            purchased_items.append((item_name, quantity, total_cost))
+            print(f"Added {quantity} {item_name}(s) for a total of Rs {total_cost}.")
+        except ValueError:
+            print("Please enter a valid number for quantity.")
+            continue
+    else:
+        print("Sorry, we don't have that item in stock.")
+
+    
+    another = input("Do you want to buy anything more? (yes or no): ").strip().lower()
+    if another != "yes":
+        break
+
+
+print("\nBill Summary")
+grand_total = 0
+for item, qty, cost in purchased_items:
+    print(f"{qty} {item}(s) total: Rs {cost}")
+    grand_total += cost
+
+print(f"\nYour total bill is Rs {grand_total}")
+print("Thank you for shopping with us!")
+
+
+
+# WELCOME TO STUDENT ELECTRONICS
+
+# Available Products:
+#  AndroidTV : Rs 55000
+#  Washing Machine : Rs 45000
+#  AC : Rs 57000
+#  Smartphone : Rs 25000
+#  Oven : Rs 12000
+#  Fridge : Rs 42000
+
+# What would you like to buy?: AC
+# How many quantity you want to purchase?: 65
+# Added 65 AC(s) for a total of Rs 3705000.
+# Do you want to buy anything more? (yes or no): yes
+
+# Available Products:
+#  AndroidTV : Rs 55000
+#  Washing Machine : Rs 45000
+#  AC : Rs 57000
+#  Smartphone : Rs 25000
+#  Oven : Rs 12000
+#  Fridge : Rs 42000
+
+# What would you like to buy?: Oven
+# How many quantity you want to purchase?: 600
+# Added 600 Oven(s) for a total of Rs 7200000.
+# Do you want to buy anything more? (yes or no): no
+
+# Bill Summary
+# 65 AC(s) total: Rs 3705000
+# 600 Oven(s) total: Rs 7200000
+
+# Your total bill is Rs 10905000
+# Thank you for shopping with us!
+
+
+Date=08/01/2025
+
+cars = [
+    {"type": "SUV", "deposit": 15000, "rent": 5000, "models": ["Ford Everest", "Jeep Cherokee", "Nissan Patrol", "Volkswagen Touareg"]},
+    {"type": "Sedan", "deposit": 10000, "rent": 4000, "models": ["Mazda 6", "Audi A4", "BMW 3 Series", "Mercedes C-Class"]},
+    {"type": "MPV", "deposit": 20000, "rent": 6000, "models": ["Honda Odyssey", "Chrysler Pacifica", "Toyota Sienna", "Renault Espace"]}
+]
+
+rented_cars = []
+def display_cars():
+    print("\nAvailable Cars:")
+    for car in cars:
+        print(f"{car['type']}: {', '.join(car['models'])} | Rent: ₹{car['rent']}/day, Deposit: ₹{car['deposit']}")
+
+def rent_car():
+    display_cars()
+    car_type = int(input("\nSelect car type (1-SUV, 2-Sedan, 3-MPV): ")) - 1
+    if car_type not in range(len(cars)):
+        print("Invalid choice.")
+        return
+
+    selected_car = cars[car_type]
+    for i, model in enumerate(selected_car['models'], 1):
+        print(f"{i}. {model}")
+
+    model_index = int(input("Select model number: ")) - 1
+    if model_index not in range(len(selected_car['models'])):
+        print("Invalid choice.")
+        return
+
+    rental_days = int(input(f"Enter rental days for {selected_car['models'][model_index]}: "))
+    rented_cars.append({
+        "model": selected_car['models'][model_index],
+        "type": selected_car['type'],
+        "rent": rental_days * selected_car['rent'],
+        "deposit": selected_car['deposit']
+    })
+    print(f"{selected_car['models'][model_index]} rented for ₹{rental_days * selected_car['rent']} (Rent) + ₹{selected_car['deposit']} (Deposit)")
+
+while True:
+    print("\n1. Show Cars\n2. Rent a Car\n3. Exit")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        display_cars()
+    elif choice == "2":
+        rent_car()
+    elif choice == "3":
+        print("\nRented Cars:")
+        for car in rented_cars:
+            print(f"Model: {car['model']}, Type: {car['type']}, Rent Paid: ₹{car['rent']}, Deposit: ₹{car['deposit']}")
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice.")
+
+
+#output
+
+# 1. Show Cars
+# 2. Rent a Car
+# 3. Exit
+# Enter your choice: 2
+
+# Available Cars:
+# SUV: Ford Everest, Jeep Cherokee, Nissan Patrol, Volkswagen Touareg | Rent: ₹5000/day, Deposit: ₹15000
+# Sedan: Mazda 6, Audi A4, BMW 3 Series, Mercedes C-Class | Rent: ₹4000/day, Deposit: ₹10000
+# MPV: Honda Odyssey, Chrysler Pacifica, Toyota Sienna, Renault Espace | Rent: ₹6000/day, Deposit: ₹20000
+
+# Select car type (1-SUV, 2-Sedan, 3-MPV): 1
+# 1. Ford Everest
+# 2. Jeep Cherokee
+# 3. Nissan Patrol
+# 4. Volkswagen Touareg
+# Select model number: 1
+# Enter rental days for Ford Everest: 2
+# Ford Everest rented for ₹10000 (Rent) + ₹15000 (Deposit)
+
+# 1. Show Cars
+# 2. Rent a Car
+# 3. Exit
+# Enter your choice: 2
+
+# Available Cars:
+# SUV: Ford Everest, Jeep Cherokee, Nissan Patrol, Volkswagen Touareg | Rent: ₹5000/day, Deposit: ₹15000
+# Sedan: Mazda 6, Audi A4, BMW 3 Series, Mercedes C-Class | Rent: ₹4000/day, Deposit: ₹10000
+# MPV: Honda Odyssey, Chrysler Pacifica, Toyota Sienna, Renault Espace | Rent: ₹6000/day, Deposit: ₹20000
+
+# Select car type (1-SUV, 2-Sedan, 3-MPV): 3
+# 1. Honda Odyssey
+# 2. Chrysler Pacifica
+# 3. Toyota Sienna
+# 4. Renault Espace
+# Select model number: 2
+# Enter rental days for Chrysler Pacifica: 2
+# Chrysler Pacifica rented for ₹12000 (Rent) + ₹20000 (Deposit)
+
+# 1. Show Cars
+# 2. Rent a Car
+# 3. Exit
+# Enter your choice: 3
+
+# Rented Cars:
+# Model: Ford Everest, Type: SUV, Rent Paid: ₹10000, Deposit: ₹15000
+# Model: Chrysler Pacifica, Type: MPV, Rent Paid: ₹12000, Deposit: ₹20000
+# Goodbye!
+
+
+Date=09/01/2025
+
+a={}
+for i in range(5):
+  keys=input("enter keys=")
+  val=input("enter values=")
+  a[keys]=val
+  print(a)
+
+output
+# enter keys=id
+# enter values=1
+# {'id': '1'}
+# enter keys=name
+# enter values=kk
+# {'id': '1', 'name': 'kk'}
+# enter keys=dap
+# enter values=cs
+# {'id': '1', 'name': 'kk', 'dap': 'cs'}
+# enter keys=salary
+# enter values=1500000
+# {'id': '1', 'name': 'kk', 'dap': 'cs', 'salary': '1500000'}
+# enter keys=age
+# enter values=20
+# {'id': '1', 'name': 'kk', 'dap': 'cs', 'salary': '1500000', 'age': '20'}
+
+Date=10/01/2025
+
+# Task(I)
+print("!WELCOME TO MSEB ")
+n = input("Enter your name:")
+u = int(input("Enter your units:"))
+def light():
+ if u >= 0 and u <= 100:
+  return u*3
+ elif u >= 101 and u <= 300:
+  return u*5
+ elif u >= 301 and u <= 500:
+  return u*7
+ elif u > 501:
+  return u*10
+ else:
+  print("invalid.")
+light()
+print(f" Hello {n} your total bill of electricity is:", light())
+
+# output=
+# WELCOME TO MSEB 
+# Enter your name:kk
+# Enter your units:200
+# Hello kk your total bill of electricity is: 1000
+
+#Task(II)
+t1 = [1, 2, 3, 4, 'NITS', 0, 7, 24.00, 'Nashik', 8, 9,]
+print(t1)
+print(t1[0:10:2])
+print(t1[2:10])
+print(t1[-3:-10])
+print(t1[1:11:3])
+print(t1[0:11:1])
+
+# output
+# [1, 2, 3, 4, 'NITS', 0, 7, 24.0, 'Nashik', 8, 9]
+# [1, 3, 'NITS', 7, 'Nashik']
+# [3, 4, 'NITS', 0, 7, 24.0, 'Nashik', 8]
+# []
+# [2, 'NITS', 24.0, 9]
+# [1, 2, 3, 4, 'NITS', 0, 7, 24.0, 'Nashik', 8, 9]
